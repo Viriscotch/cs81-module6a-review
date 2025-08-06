@@ -44,4 +44,16 @@ myMix.addSong("Evening Jazz");
 myMix.playFirst();
 myMix.skipSong();
 myMix.listSongs();
-  
+
+// Suggestion: Add a "shuffle" feature
+
+Playlist.prototype.shuffle = function() {
+  for (let i = this.songs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [this.songs[i], this.songs[j]] = [this.songs[j], this.songs[i]];
+  }
+  console.log("Playlist shuffled!");
+};
+
+myMix.shuffle(); 
+myMix.listSongs();
